@@ -214,11 +214,13 @@ public class ConfigManager {
 	
 	public boolean isBlacklisted(Item item)
 	{
+		if (entityBlacklist.contains(item.getClass().getCanonicalName())) return true;
 		return( itemsBlackList.contains(item));
 	}
 	
 	public boolean isBlacklisted(Entity entity)
 	{
+		if (entityBlacklist.contains(entity.getClass().getCanonicalName())) return true;
 		return entityBlacklist.contains(entity.getCommandSenderName());
 	}
 	public boolean isBlacklisted(String name)
